@@ -1,8 +1,14 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
     url: jdbc:postgresql://localhost:5433/loginRedesNeuronales
     username: postgres
@@ -10,3 +16,7 @@ spring:
     driver-class-name: org.postgresql.Driver
 server:
   port: 3010
+#jwt:
+#  secret: secret
+#  expiration: 3600
+#  accessTokenCookieName: Authoken

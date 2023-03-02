@@ -1,7 +1,7 @@
 package com.neuronales.login.models;
 
-import com.neuronales.login.utls.AuthorityName;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,14 +10,15 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity(name = "autorities")
-public class Authority {
+public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     @Enumerated(EnumType.STRING)
-    private AuthorityName name;
+    private RolList name;
 
-    public Authority(AuthorityName authorityName) {
-        this.name = authorityName;
+    public Rol(@NotNull RolList rolList) {
+        this.name = rolList;
     }
 }
